@@ -1,0 +1,29 @@
+
+<div id="nav">
+	<span class="dev">Menu</span>
+	<ul>
+		<li><a href="<?php echo $this->baseUrl('/') ?>index">Accueil</a></li>
+		<li><a href="<?php echo $this->baseUrl('/') ?>index/annonces">Annonces</a></li>
+		<li><a href="<?php echo $this->baseUrl('/') ?>index/annonceurs">Annonceurs</a></li>
+		
+		<?php
+		if(!Zend_Session::namespaceGet('user')){
+		?>
+			<li><a href="<?php echo $this->baseUrl('/') ?>index/inscription">Inscription</a></li>
+		<?php 
+		}else{
+		?>
+			<li><a href="<?php echo $this->baseUrl('/') ?>index/profil">Mon profil</a></li>
+			<li><a href="<?php echo $this->baseUrl('/') ?>index/mesannonces">Mes annonces</a></li>
+			<li><a href="<?php echo $this->baseUrl('/') ?>index/mesfavoris">Mes favoris</a></li>
+		<?php 
+			$session = Zend_Session::namespaceGet('user');
+			if ($session['annonceur']->getStatut() == 'admin'){
+		?>
+				<li><a href="<?php echo $this->baseUrl('/') ?>index/administration">Administration</a></li>
+		<?php
+			}
+		}
+		?>
+	</ul>
+</div>

@@ -1,0 +1,17 @@
+<?php extract($this->getVars()); ?>
+
+Liste des annonceurs
+
+<?php // echo '<pre>'; var_dump($listeAnnonceurs); echo '</pre>';?>
+
+<ul>
+<?php
+foreach ($this->listeAnnonceurs as $annonceur) {
+    echo "<li><pre>";
+	echo var_dump($annonceur);
+	echo"</pre></li></br>";
+}
+?>
+</ul>
+<?php
+echo $this->listeAnnonceurs;

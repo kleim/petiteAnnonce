@@ -1,0 +1,41 @@
+<?php extract($this->getVars()); ?>
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title></title>
+
+		<!-- Meta Tags -->
+		<meta
+			http-equiv="content-type"
+			content="application/xhtml+xml; charset=utf-8"
+		/>
+		<meta name="robots" content="index, follow" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="<?php echo $this->baseUrl('/'); ?>/styles/style.css" media="screen,projection" type="text/css" />
+	</head>
+	<body>
+		<div id="container">
+
+			<?php
+			echo $this->partial("placeholders/header.phtml", array('loginForm' => $loginForm));
+			echo $this->partial("placeholders/navigation.phtml");
+			echo $this->partial("placeholders/sidebar.phtml");
+			?>
+
+			<div id="content">
+				Content
+				<br/><br/>
+				<?php echo $this->layout()->content; ?>
+			</div>
+			
+			<?php
+			echo $this->partial("placeholders/footer.phtml"); 
+			?>
+
+		</div>
+	</body>
+</html>

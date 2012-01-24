@@ -1,0 +1,32 @@
+<?php extract($this->getVars()); ?>
+
+Liste des annonces
+
+<?php//  echo '<pre>'; var_dump($liste_annonces); echo '</pre>'; ?>
+
+<ul>
+	<?php
+	foreach ($this->liste_annonces as $annonce) {
+	?>
+		<li>
+			<?php echo $annonce->getTitreLien();?>
+			<br/>
+			<?php echo $annonce->getDescriptionTronquee();?>
+			<br/>
+			<?php echo $annonce->getPrixEuro();?>
+			<br/>
+			<?php echo $annonce->getAnnonceurLien();?>
+			<br/>
+			<?php echo $annonce->getTypeLien();?>
+			<br/>
+			<?php echo $annonce->getCategorieLien();?>
+			<br/>
+			<?php echo $annonce->getVilleLien();?>
+		
+		</li>
+	<?php 
+	}
+	?>
+</ul>
+<?php
+echo $this->liste_annonces;

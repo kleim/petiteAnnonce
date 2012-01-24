@@ -1,0 +1,11 @@
+<div id="header">
+	<span class="dev">Header</span>
+	<?php 
+	if(!Zend_Session::namespaceGet('user')){
+		echo $this->loginForm;
+	}else{
+		$session = Zend_Session::namespaceGet('user');
+		echo '<br/>'.$session['annonceur'].' : Connecté<br/><a href="'.$this->baseUrl('/').'index/logout?logout">Déconnexion</a>';
+	}
+	?>
+</div>
