@@ -1,0 +1,36 @@
+<?php
+
+echo "<h2>Page de test</h2>";
+ echo var_dump($testAnnonce);
+ echo "<br/>";
+ echo var_dump($testAnnonceur);
+ echo "<br/>";
+ echo var_dump($testWebService);
+ echo "<br/>";
+ echo var_dump($testValidation);
+ echo "<br/>";
+ echo var_dump($testAuth);
+ echo "<br/>";
+ echo var_dump($testLoginForm);
+ echo "<br/>";
+echo var_dump($testListeRegions);
+ echo "<br/>";
+echo var_dump($testRegion);
+ echo "<br/>";
+echo var_dump($testListeDepartements);
+ echo "<br/>";
+echo var_dump($testDepartement);
+ echo "<br/>";
+echo var_dump($testListeVilles);
+echo "<br/>";
+echo var_dump($testVille);
+echo "<br/>";
+echo var_dump($testListeTypes);
+echo "<br/>";
+echo var_dump($testType);
+echo "<br/>";
+echo var_dump($testListeCategories);
+echo "<br/>";
+echo var_dump($testCategorie);
+echo "<br/>";
+echo var_dump($testAuthentification);
