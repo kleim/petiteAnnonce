@@ -37,6 +37,14 @@ class WebServices_Annonceur extends WebServices_WebService
 		return $newAnnonceur;		
 
 	}
+        
+        public function modificationAnnonceur($donneesInscription,$id){
+               
+                $this->setParameterGet(array('id'  => $id,));
+                $this->setParameterPost($donneesInscription);
+                $this->getResponseBody('PUT');
+                return true;
+        }
 	
 }
 

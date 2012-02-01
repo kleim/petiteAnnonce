@@ -23,7 +23,7 @@ class Authentification_Authentification
                 return $annonceur;
 	
 	}
-	
+
 	public function unsetSession(){
 		Zend_Session::destroy();
 	}

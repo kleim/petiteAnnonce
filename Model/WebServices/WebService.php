@@ -32,6 +32,10 @@ class WebServices_WebService extends Zend_Http_Client
                                     break;
 			case 'POST' : $response = $this->request('POST');
                                       break;
+                        case 'PUT' : $response = $this->request('PUT');
+                                      break;
+                        case 'DELETE' : $response = $this->request('DELETE');
+                                      break;
 		}
                 $this->isResponseError($response);
                 return $response;

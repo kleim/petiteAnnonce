@@ -1,6 +1,6 @@
 <?php
 
-class Forms_InscriptionForm extends Zend_Form
+class Forms_ModificationForm extends Zend_Form
 {
 	public function init()
 	{
@@ -57,7 +57,6 @@ class Forms_InscriptionForm extends Zend_Form
                 $telephone = $this->addElement("text", "telephone", array(
 		"filters" => array("StringTrim", "StringToLower"),
 		"validators" => array(
-		"Alnum",
 		array("StringLength", false, array(10, 15)),
 		),
 		"required" => true,
@@ -74,10 +73,10 @@ class Forms_InscriptionForm extends Zend_Form
 		));
                 
                 
-		$login = $this->addElement("submit", "inscription", array(
+		$submit = $this->addElement("submit", "modif_ok", array(
 		"required" => false,
 		"ignore" => true,
-		"label" => "Inscription",
+		"label" => "Enregistrer les modifications",
 		));
 		// Nous souhaitons afficher un message"failed authentication" si n�cessaire;
 		// nous le ferons avec le champs "description", nous avons donc besoin
@@ -88,6 +87,9 @@ class Forms_InscriptionForm extends Zend_Form
 		array("Description", array("placement" => "prepend")),
 		"Form"
 		));
+                
+                global $baseUrl;
+                $this->setAction($baseUrl.'/index.php/profil');
 	}
 }
 

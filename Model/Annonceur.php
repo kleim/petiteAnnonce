@@ -3,7 +3,7 @@
 class Model_Annonceur
 {
 
-	// ----- Définition des attributs -----
+	// ----- Dï¿½finition des attributs -----
 	protected $_id_annonceur;
 	protected $_pseudo;
 	protected $_mdp;
@@ -15,7 +15,7 @@ class Model_Annonceur
 	protected $_email;
 	protected $_statut;
 
-	// ----- Définition des getters et setters ------
+	// ----- Dï¿½finition des getters et setters ------
 	public function getId_Annonceur() {
 		return $this->_id_annonceur;
 	}
@@ -77,12 +77,12 @@ class Model_Annonceur
 		$this->_statut = $statut;
 	}
 
-	// ----- Définition des méthodes ------
+	// ----- Dï¿½finition des mï¿½thodes ------
 
 	/**
-	 * Cette fonction sert à initialiser ou modifier plusieurs attributs de l'objet en même temps
-	 * @param $array = Tableau de valeurs : le clé correspond à au nom d'un attribut et la valeur est celle à lui affecter.
-	 * @return $this = L'objet initialisé 
+	 * Cette fonction sert ï¿½ initialiser ou modifier plusieurs attributs de l'objet en mï¿½me temps
+	 * @param $array = Tableau de valeurs : le clï¿½ correspond ï¿½ au nom d'un attribut et la valeur est celle ï¿½ lui affecter.
+	 * @return $this = L'objet initialisï¿½ 
 	 */
 	public function setFromArray(array $array){
 		foreach($array as $key=>$value){
@@ -92,8 +92,8 @@ class Model_Annonceur
 	}
 
 	/**
-	 * Cette fonction sert à obtenir le prénom et le nom d'un annonceur dans une seule chaine de caractères
-	 * @return $chaine_nom_prenom = La chaine de caractère contenant le nom et le prénom
+	 * Cette fonction sert ï¿½ obtenir le prï¿½nom et le nom d'un annonceur dans une seule chaine de caractï¿½res
+	 * @return $chaine_nom_prenom = La chaine de caractï¿½re contenant le nom et le prï¿½nom
 	 */
 	public function __toString(){
 		return $this->_prenom." ".$this->_nom;
@@ -101,14 +101,14 @@ class Model_Annonceur
 	
 	/**
 	 * Cette fonction renvoie le pseudo sous forme de lien vers la page de l'annonceur
-	 * @return $pseudo = chaine de carcatère contenant le pseudo sous forme de lien
+	 * @return $pseudo = chaine de carcatï¿½re contenant le pseudo sous forme de lien
 	 */
 	public function getPseudoLien(){
 		return '<a href="annonceur?id='.$this->_id_annonceur.'">'.$this->_pseudo.'</a>';
 	}
 	
 	/**
-	 * Cette fonction sert à obtenir l'ensemble des annonceurs du service web
+	 * Cette fonction sert ï¿½ obtenir l'ensemble des annonceurs du service web
 	 * @return $liste_annonceurs = Le tableau contenant la liste des objets annonceurs
 	 */
 	public static function getAllAnnonceurs($page=1,$nbElementsParPage=10){
@@ -118,13 +118,24 @@ class Model_Annonceur
 	}
 	
 	/**
-	 * Cette fonction sert à obtenir les données dun annocneur par son identifiant
-	 * @return $annonceur = L'objet annonceur contenant les données ou false si l'annonceur n'existe pas
+	 * Cette fonction sert ï¿½ obtenir les donnï¿½es dun annocneur par son identifiant
+	 * @return $annonceur = L'objet annonceur contenant les donnï¿½es ou false si l'annonceur n'existe pas
 	 */
 	public static function getAnnonceurById($id){
 		$requete = new WebServices_Annonceur;
 		return $requete->getAnnonceurById($id);
 	}
+        
+        
+        public function getArrayFromObject() 
+        { 
+            $array = array(); 
+            foreach ($this as $key=>$value) 
+            { 
+                $array[substr($key,1)] = $value; 
+            } 
+            return $array; 
+        } 
 
 
 }
